@@ -11,9 +11,10 @@ PDFScalpel is an advanced forensic PDF analysis framework for security research,
 -->
 
 
-<p align="center">
-  <img src="PDFScalpel.PNG" alt="PDFScalpel - Forensic PDF Analysis Toolkit" width="720">
+<p align="left">
+  <img src="PDFScalpel.PNG" alt="PDFScalpel - Forensic PDF Analysis Toolkit" width="180">
 </p>
+
 
 # PDFScalpel
 
@@ -253,10 +254,16 @@ pdfscalpel analyze entropy document.pdf --heatmap -o entropy.png
 ### Modify PDFs
 ```bash
 # Merge PDFs
-pdfscalpel mutate pages file1.pdf file2.pdf -o merged.pdf --merge
+pdfscalpel mutate merge file1.pdf file2.pdf -o merged.pdf
 
 # Extract page range
-pdfscalpel mutate pages document.pdf -o output.pdf --extract 1-5,10,15-20
+pdfscalpel mutate extract-pages document.pdf -o output.pdf --pages 1-5,10,15-20
+
+# Delete specific pages
+pdfscalpel mutate delete-pages document.pdf -o output.pdf --pages 3,7-9
+
+# Rotate pages
+pdfscalpel mutate rotate-pages document.pdf -o output.pdf --pages 1-3 --rotation 90
 
 # Add password
 pdfscalpel mutate encrypt input.pdf output.pdf --password secret123 --algorithm aes256
@@ -265,7 +272,30 @@ pdfscalpel mutate encrypt input.pdf output.pdf --password secret123 --algorithm 
 pdfscalpel mutate decrypt encrypted.pdf output.pdf --password secret123
 
 # Redact text patterns
-pdfscalpel mutate redaction document.pdf output.pdf --pattern "\d{3}-\d{2}-\d{4}"
+pdfscalpel mutate redact document.pdf output.pdf --pattern "\d{3}-\d{2}-\d{4}"
+```
+
+### OCR (Optical Character Recognition)
+```bash
+# Make scanned PDF searchable (basic mode - skips pages with existing text)
+pdfscalpel mutate ocr scanned_document.pdf searchable.pdf
+
+# Force OCR on all pages (image-based PDFs)
+pdfscalpel mutate ocr scanned_document.pdf searchable.pdf --force-ocr
+
+# Multi-language OCR
+pdfscalpel mutate ocr document.pdf output.pdf --lang eng+spa --force-ocr
+
+# Check available languages
+pdfscalpel mutate ocr --list-languages
+
+# Advanced options
+pdfscalpel mutate ocr input.pdf output.pdf \
+  --force-ocr \
+  --lang eng \
+  --jobs 8 \
+  --no-deskew \
+  --output-type pdfa
 ```
 
 ## Command Reference
@@ -308,11 +338,17 @@ pdfscalpel mutate redaction document.pdf output.pdf --pattern "\d{3}-\d{2}-\d{4}
 
 | Command | Description |
 |---------|-------------|
-| `pages` | Merge, extract, reorder, delete pages |
+| `merge` | Merge multiple PDFs into one |
+| `extract-pages` | Extract specific pages from PDF |
+| `delete-pages` | Delete specific pages from PDF |
+| `rotate-pages` | Rotate pages (90, 180, 270 degrees) |
 | `watermark` | Add or remove watermarks |
-| `encryption` | Add or remove password protection |
-| `bookmarks` | Add, remove, or auto-generate bookmarks |
-| `redaction` | Redact sensitive content |
+| `encrypt` | Add password protection and encryption |
+| `decrypt` | Remove password protection and encryption |
+| `add-bookmarks` | Add bookmarks/table of contents |
+| `remove-bookmarks` | Remove all bookmarks |
+| `redact` | Redact text matching patterns |
+| `ocr` | Add searchable text layer via OCR (requires tesseract) |
 | `optimize` | Compress, remove unused objects, linearize |
 
 ### Solve Commands (CTF/Authorized Testing)
@@ -332,6 +368,8 @@ pdfscalpel mutate redaction document.pdf output.pdf --pattern "\d{3}-\d{2}-\d{4}
 | `challenge` | Generate CTF challenges |
 | `corrupted` | Generate intentionally broken PDFs |
 | `polyglot` | Create PDF polyglots (PDF+ZIP, PDF+HTML) |
+| `stego-data` | Generate steganographic test data |
+| `watermark-samples` | Generate watermark test samples |
 
 ### Utility Commands
 
